@@ -1,0 +1,22 @@
+<div *ngFor="let user of users" class="row">
+  <div class="col">
+    <a class="btn btn-link" (click)="open(user, userData)">{{user.id}}</a>
+  </div>
+  <div class="col">{{user.name}}</div>
+  <div class="col">{{user.email}}</div>
+  <div class="col">{{user.phone}}</div>
+  <div class="col">{{user.address.city}}</div>
+  <div class="col">{{user.company.name}}</div>
+  <div class="col">{{user.website}}</div>
+</div>
+
+<ng-template #userData let-modal>
+  <div class="modal-header">
+    <div class="modal-title">
+      {{selectedUser.name}}
+    </div>
+  </div>
+  <div class="modal-body">
+    <pre>{{selectedUser | json}}</pre>
+  </div>
+</ng-template>
